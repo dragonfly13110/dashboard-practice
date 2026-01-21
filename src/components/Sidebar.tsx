@@ -103,12 +103,7 @@ export default function Sidebar() {
                     </div>
                 </nav>
 
-                {/* Footer */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white/80">
-                    <div className="text-center text-sm text-gray-500">
-                        <p>🌾 สำหรับเจ้าหน้าที่ส่งเสริมการเกษตร</p>
-                    </div>
-                </div>
+
             </aside>
         </>
     );
