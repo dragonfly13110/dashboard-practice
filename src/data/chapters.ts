@@ -10,6 +10,7 @@ export interface ChapterSection {
         before?: string;
         after?: string;
     }[];
+    visual?: 'scorecard-demo' | 'chart-comparison' | 'bad-vs-good-table';
 }
 
 export interface Chapter {
@@ -152,6 +153,7 @@ export const chapters: Chapter[] = [
         sections: [
             {
                 id: "good-data-structure",
+                visual: 'bad-vs-good-table',
                 title: "โครงสร้างข้อมูลที่ดีคืออะไร?",
                 content: `
 ## 📋 หลักการของตารางข้อมูลที่ดี
@@ -395,6 +397,7 @@ Excel ชอบมีแถวว่างคั่นสำหรับคว�
         sections: [
             {
                 id: "looker-interface",
+                visual: 'scorecard-demo',
                 title: "ส่วนประกอบของ Looker Studio",
                 content: `
 ## 🖥️ หน้าจอ Looker Studio

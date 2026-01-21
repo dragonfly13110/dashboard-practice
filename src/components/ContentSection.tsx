@@ -3,6 +3,8 @@
 import { ChapterSection } from '@/data/chapters';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Scorecard, BarChart, PieChart } from './charts/ChartVisuals';
+import { BadTable, GoodTable } from './charts/TableVisuals';
 
 interface ContentSectionProps {
     section: ChapterSection;
@@ -109,6 +111,48 @@ export default function ContentSection({ section, index }: ContentSectionProps) 
                             )}
                         </div>
                     ))}
+                </div>
+            )}
+            {/* Visuals */}
+            {section.visual === 'scorecard-demo' && (
+                <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+                    <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>📊</span> ตัวอย่างการแสดงผลจริง
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className='flex flex-col gap-4'>
+                            <h5 className="font-medium text-gray-600 text-center">Scorecard</h5>
+                            <Scorecard title="เกษตรกรทั้งหมด" value="1,245" subtext="ราย" trend="up" />
+                        </div>
+                        <div className='flex flex-col gap-4'>
+                            <h5 className="font-medium text-gray-600 text-center">Bar Chart</h5>
+                            <BarChart
+                                title="พื้นที่ปลูกแยกตามตำบล"
+                                data={[
+                                    { label: 'บางระทึก', value: 450, color: 'bg-green-500' },
+                                    { label: 'ศาลายา', value: 320, color: 'bg-green-400' },
+                                    { label: 'คลองโยง', value: 280, color: 'bg-green-300' },
+                                ]}
+                            />
+                        </div>
+                        <div className='flex flex-col gap-4'>
+                            <h5 className="font-medium text-gray-600 text-center">Pie Chart</h5>
+                            <PieChart
+                                title="สัดส่วนชนิดพืช"
+                                data={[
+                                    { label: 'ข้าว', value: 60, color: '#34D399' },
+                                    { label: 'ไม้ผล', value: 30, color: '#FBBF24' },
+                                    { label: 'ผัก', value: 10, color: '#60A5FA' },
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
+            {section.visual === 'bad-vs-good-table' && (
+                <div className="mt-8 grid md:grid-cols-2 gap-6">
+                    <BadTable />
+                    <GoodTable />
                 </div>
             )}
         </section>
